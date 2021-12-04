@@ -81,12 +81,4 @@
 </div>
 <br>
 
-<div id="smart-button-container">
-      <div style="text-align: center;">
-        <div id="paypal-button-container"></div>
-      </div>
-    </div>
-  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=BRL" data-sdk-integration-source="button-factory"></script>
-</div>
-
 <?php include_once "./partials/FOOT.php"; ?>
