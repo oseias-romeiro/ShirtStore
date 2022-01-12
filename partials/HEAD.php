@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Web clothes / shirt store to sell, if you search for a ecommmerce working now, this can be be your!" title="shirt store | Ecommerce to sell">
     <meta name="keywords" content="ecommerce, website, clothes, store, shirts, buy, sell, buy-an-ecommerce">
+    <meta name="google-site-verification" content="hZcQF8vJ9UveUt0bOdHXs2w-E6NEyzFWpVpEc4GFKSI" />
     
     <title>STORE</title>
 
