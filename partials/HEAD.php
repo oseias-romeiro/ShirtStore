@@ -6,6 +6,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web clothes / shirt store to sell, if you search for a ecommmerce working now, this can be be your!" title="shirt store | Ecommerce to sell">
+    <meta name="keywords" content="ecommerce, website, clothes, store, shirts, buy, sell, buy-an-ecommerce">
+    
     <title>STORE</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">

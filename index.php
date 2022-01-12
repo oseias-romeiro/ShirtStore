@@ -5,7 +5,7 @@
 
 <div class="capa">
     <div class='sell'>
-        WEBSITE TO SELL
+        ECOMMERCE TO SELL
     </div>
     <picture>
         <source srcset="public/img/capaMobile.jpeg" media="(max-width: 770px)">
