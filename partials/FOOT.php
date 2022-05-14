@@ -4,7 +4,7 @@
             <footer class="bg-dark text-center text-white">
                 <!-- Copyright -->
                 <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                    <h5>DO YOU LIKE? <a href="http://oseias-romeiro.xp3.biz/" target="__blank" style="color: orange">Check my profile</a> and contact me</h5>
+                    <h5>DO YOU LIKE? <a href="https://oseias-romeiro.github.io/portfolio/" target="__blank" style="color: orange">Check my profile</a> and contact me</h5>
                     © 2021 Copyright:
                     <a class="text-white" href="mailto:oseiasromeirom@gmail.com">Hosea Romeiro</a>
                 </div>

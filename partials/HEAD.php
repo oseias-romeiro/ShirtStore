@@ -26,7 +26,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="/" style='width: 100px; text-align: center'>STORE</a>
+        <a class="navbar-brand text-warning" href="/" style='width: 100px; text-align: center'>STORE</a>
         <button class="navbar-toggler" id="btnMobile" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

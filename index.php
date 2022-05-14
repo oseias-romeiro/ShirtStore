@@ -34,7 +34,7 @@
             foreach($r as $r){
                 $img = explode(',',  $r[1]);
                 echo ("
-                    <div class='col'>
+                    <div class='col-6 col-md-3'>
                         <a href='/product.php/?". $r[0] ."' style='text-decoration: none; color: black' class='card'>
                             <img src='public/img/". $img[0] ."' alt='modelo' class='imgRes align-self-center' >
                             <div class='card-body' style='text-align: center'>
