@@ -4,27 +4,13 @@
 ?>
 
 <div class="capa">
-    <div class='sell'>
-        ECOMMERCE TO SELL
-    </div>
     <picture>
         <source srcset="public/img/capaMobile.jpeg" media="(max-width: 770px)">
-        <source srcset="public/img/capa2.jpeg">
-        <img src="public/img/capa.jpeg" alt="Responsive image" class="img-fluid">
+        <source srcset="public/img/capa2.png">
+        <img src="public/img/capa2.png" alt="Responsive image" class="img-fluid">
     </picture>
     <br><br>
 </div>
-
-<style>
-    .sell {
-        font-family: 'Times New Roman', Times, serif;
-        color: orange;
-        font-size: 2rem;
-        text-decoration: underline;
-        margin-top: 45px;
-        padding: 20px 0 10px 0;
-    }
-</style>
 
 <hr>
 <div class="container">

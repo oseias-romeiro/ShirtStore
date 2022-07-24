@@ -10,7 +10,7 @@
     <meta name="keywords" content="ecommerce, website, clothes, store, shirts, buy, sell, buy-an-ecommerce">
     <meta name="google-site-verification" content="hZcQF8vJ9UveUt0bOdHXs2w-E6NEyzFWpVpEc4GFKSI" />
     
-    <title>STORE</title>
+    <title>Tee-Shirts Store</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -26,7 +26,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand text-warning" href="/" style='width: 100px; text-align: center'>STORE</a>
+        <a class="navbar-brand text-warning" href="/" style='width: 100px; text-align: center'>Tee-Shirts</a>
         <button class="navbar-toggler" id="btnMobile" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
