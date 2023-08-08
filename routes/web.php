@@ -18,3 +18,22 @@ Route::get('/', function () {
     $products = Product::all();
     return view('index', compact('products'));
 });
+
+// TODO: bag with cookies
+Route::get('/bag', function () {
+    return view('shopping/bag');
+});
+
+// TODO: need auth
+Route::get('/favorites', function () {
+    return view('shopping/favorites');
+});
+
+Route::get('/product/{slug}', function ($slug) {
+    $product = Product::where('slug', $slug)->first();
+    if ($product) {
+        return view('shopping/product', ['product' => $product]);
+    } else {
+        abort(404); // product not found
+    }
+});
