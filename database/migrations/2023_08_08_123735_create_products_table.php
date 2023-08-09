@@ -18,9 +18,10 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->decimal('old_price', 10, 2)->nullable();
             $table->integer('units')->default(1);
+            $table->text('description');
             $table->json('sizes');
-            $table->text('description')->nullable();
-            $table->json('images')->nullable();
+            $table->json('colors');
+            $table->json('images');
             $table->timestamps();
         });
     }

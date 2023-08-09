@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- font-awsome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
     @php
@@ -33,8 +35,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ ($route == 'favorits') ? 'active' : '' }}" aria-current="page" href="#">
-                        <i class="fa-solid fa-heart" style="color: #ffffff;"></i> Favorits
+                    <a class="nav-link {{ ($route == 'favorites') ? 'active' : '' }}" aria-current="page" href="/shopping/favorites">
+                        <i class="fa-solid fa-heart" style="color: #ffffff;"></i> Favorites
                     </a>
                 </li>
                 <li class="nav-item">
@@ -43,7 +45,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ ($route == 'bag') ? 'active' : '' }}" href="/bag">
+                    <a class="nav-link {{ ($route == 'bag') ? 'active' : '' }}" href="/shopping/bag">
                         <i class="fa-solid fa-bag-shopping" style="color: #f6f5f4;"></i> Bag
                     </a>
                 </li>
@@ -86,5 +88,7 @@
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script type="module" src="/js/app.js"></script>
 </body>
 </html>

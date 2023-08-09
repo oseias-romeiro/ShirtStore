@@ -4,10 +4,11 @@
 
 
 @section('content')
+
 <br>
 <div class="card-body">
     <div class="row">
-        <div class="col">
+        <div class="col-12 col-md-6">
             <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                     @foreach (json_decode($product->images, true) as $i)
@@ -26,7 +27,7 @@
                 </button>
             </div>
         </div>
-        <div class="col">
+        <div class="col-12 col-md-6">
             <div class='card text-center'><div class="card-body">
                 <h2 class='card-title'>{{ $product->name }}</h2>
                 <hr>
@@ -38,6 +39,7 @@
                 <del>{{ $product->old_price }}</del>
                 <h2 class="text-primary">{{ $product->price }}</h2>
                 
+                <form action="" method="post">
                 <div class="row">
                     <div class="col">
                         <label for="units">Units</label>
@@ -54,24 +56,26 @@
                     <div class="col">
                         <label for="color">Colors</label>
                         <select class="form-control" name="color" id="size">
-                            @foreach (json_decode($product->sizes, true) as $c)
-                            <option value="{{ $c }}">{{ $c }}</option>
+                            @foreach (json_decode($product->colors, true) as $c)
+                            <option selected value="{{ $c }}">{{ $c }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <hr>
-                <button class="favoriting btn">
+                <button id="favorites-btn" data-info='{"name": "{{ $product->name }}", "slug": "{{ $product->slug }}", "img": "{{ json_decode($product->images, true)[0] }}"}' type="button" class="favoriting btn">
                     <i class="fa-solid fa-heart" style="color: #000;"></i>
                 </button>
-                <button class="bagging btn">
+                <button id="baggin-btn" type="button" data="{{ $product->name }}" class="btn">
                     <i class="fa-solid fa-bag-shopping" style="color: #000;"></i>
                 </button>
-                <button class="btn btn-primary">Buy</button>
+                <button type="submit" class="btn btn-primary">Buy</button>
+                </form>
             </div></div>
         </div>
     </div>
 </div>
 
-
+<script type="module" src="/js/shopping/bag.js"></script>
+<script type="module" src="/js/shopping/favorite.js"></script>
 @endsection

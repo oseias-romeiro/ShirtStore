@@ -20,12 +20,12 @@ Route::get('/', function () {
 });
 
 // TODO: bag with cookies
-Route::get('/bag', function () {
+Route::get('/shopping/bag', function () {
     return view('shopping/bag');
 });
 
 // TODO: need auth
-Route::get('/favorites', function () {
+Route::get('/shopping/favorites', function () {
     return view('shopping/favorites');
 });
 
