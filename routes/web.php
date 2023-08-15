@@ -19,7 +19,6 @@ Route::get('/', function () {
     return view('index', compact('products'));
 });
 
-// TODO: bag with cookies
 Route::get('/shopping/bag', function () {
     return view('shopping/bag');
 });
@@ -36,4 +35,13 @@ Route::get('/product/{slug}', function ($slug) {
     } else {
         abort(404); // product not found
     }
+});
+
+/* Seller routes */
+
+// TODO: add seller model
+// TODO: add seller relationship to product model
+// TODO: add auth with seller role
+Route::get('/seller', function () {
+    return view('seller/home');
 });
