@@ -1,4 +1,4 @@
-import {setCookie, getCookie} from '../cookies.js'
+import {setCookie, getCookie, removeBySlug} from '../cookies.js'
 
 function favoriting(name, slug, img) {
     var favItems = JSON.parse(getCookie('favorites')) || [];
@@ -19,11 +19,17 @@ function get_favorites(ul) {
     }else {
         favItems.forEach((item) => {
             let li = document.createElement('li');
-            
             li.className="list-group-item"
-            li.innerHTML=`<a href='/product/${item.slug}'><img src='/images/products/${item.img}' class='img-fluid' style='max-height: 100px;'>${item.name}</a>`
-            
+            li.innerHTML=`<a href='/product/${item.slug}'><img src='/images/products/${item.img}' class='img-fluid' style='max-height: 100px;'>${item.name}</a><button class="btn btn-danger removeFromFavorite" slug="${item.slug}">X</button>`
             ul.appendChild(li)
+        })
+    }
+    let remove_btns = document.getElementsByClassName('removeFromFavorite')
+    for (let i = 0; i < remove_btns.length; i++) {
+        remove_btns[i].addEventListener("click", ()=>{
+            let slug = remove_btns[i].getAttribute('slug')
+            removeBySlug('favorites', slug)
+            window.location.reload()
         })
     }
 }

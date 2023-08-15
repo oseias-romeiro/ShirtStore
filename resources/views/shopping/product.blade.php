@@ -43,11 +43,11 @@
                 <div class="row">
                     <div class="col">
                         <label for="units">Units</label>
-                        <input class="form-control" type="number" name="units" id="units">
+                        <input id="units" class="form-control" type="number" name="units" id="units">
                     </div>
                     <div class="col">
                         <label for="size">Sizes</label>
-                        <select class="form-control" name="size" id="size">
+                        <select id="size" class="form-control" name="size" id="size">
                             @foreach (json_decode($product->sizes, true) as $s)
                             <option value="{{ $s }}">{{ $s }}</option>
                             @endforeach
@@ -55,7 +55,7 @@
                     </div>
                     <div class="col">
                         <label for="color">Colors</label>
-                        <select class="form-control" name="color" id="size">
+                        <select id="color" class="form-control" name="color" id="size">
                             @foreach (json_decode($product->colors, true) as $c)
                             <option selected value="{{ $c }}">{{ $c }}</option>
                             @endforeach
@@ -66,7 +66,7 @@
                 <button id="favorites-btn" data-info='{"name": "{{ $product->name }}", "slug": "{{ $product->slug }}", "img": "{{ json_decode($product->images, true)[0] }}"}' type="button" class="favoriting btn">
                     <i class="fa-solid fa-heart" style="color: #000;"></i>
                 </button>
-                <button id="baggin-btn" type="button" data="{{ $product->name }}" class="btn">
+                <button id="baggin-btn" type="button" data-info='{"name": "{{ $product->name }}", "slug": "{{ $product->slug }}", "img": "{{ json_decode($product->images, true)[0] }}", "price": "{{ $product->price }}"}' class="btn">
                     <i class="fa-solid fa-bag-shopping" style="color: #000;"></i>
                 </button>
                 <button type="submit" class="btn btn-primary">Buy</button>

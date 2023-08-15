@@ -46,7 +46,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ ($route == 'bag') ? 'active' : '' }}" href="/shopping/bag">
-                        <i class="fa-solid fa-bag-shopping" style="color: #f6f5f4;"></i> Bag
+                        <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i> Bag
                     </a>
                 </li>
                 <li class="nav-item dropdown">
