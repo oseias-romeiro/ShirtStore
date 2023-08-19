@@ -17,11 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $fillable = ['name', 'email', 'password', 'role'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -42,4 +38,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * The validation rules for the model.
+     *
+     * @var array<string, string>
+     */
+    public static $rules = [
+        'name' => 'required',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|min:8',
+        'role' => 'required|in:seller,customer,admin',
+    ];
+    
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($user) {
+            $user->role = $user->role ?? 'customer';
+        });
+    }
+
 }

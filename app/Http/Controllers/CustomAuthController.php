@@ -35,6 +35,7 @@ class CustomAuthController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
+            'role' => 'required|in:seller,customer,admin',
         ]);
            
         $data = $request->all();
