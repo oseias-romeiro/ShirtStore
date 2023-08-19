@@ -30,17 +30,17 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link {{ ($route == '/') ? 'active' : '' }}" aria-current="page" href="/">
+                    <a class="nav-link {{ ($route == '/') ? 'active' : '' }}" aria-current="page" href="{{ route('index') }}">
                         <i class="fa-solid fa-house" style="color: #ffffff;"></i> Home
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ ($route == 'favorites') ? 'active' : '' }}" aria-current="page" href="/shopping/favorites">
+                    <a class="nav-link {{ ($route == 'favorites') ? 'active' : '' }}" aria-current="page" href="{{ route('favorites') }}">
                         <i class="fa-solid fa-heart" style="color: #ffffff;"></i> Favorites
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ ($route == 'bag') ? 'active' : '' }}" href="/shopping/bag">
+                    <a class="nav-link {{ ($route == 'bag') ? 'active' : '' }}" href="{{ route('bag') }}">
                         <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i> Bag
                     </a>
                 </li>
@@ -51,7 +51,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                        <li><a class="dropdown-item" href="{{ route('signout') }}">SignOut</a></li>
                     </ul>
                 </li>
                 @else
