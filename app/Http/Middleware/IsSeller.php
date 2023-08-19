@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Seller
+class IsSeller
 {
     /**
      * Handle an incoming request.
@@ -15,6 +15,9 @@ class Seller
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        if (! $request->user() && $request->user()->role === 'seller') {
+            return $next($request);
+        }
+        return redirect('index');
     }
 }

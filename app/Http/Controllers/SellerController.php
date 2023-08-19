@@ -10,7 +10,10 @@ use Illuminate\Http\Request;
 
 class SellerController extends Controller
 {
-    public function __construct() { $this->middleware('auth'); }
+    public function __construct() {
+        $this->middleware('auth');
+        $this->middleware('isSeller');
+    }
 
     public function home() { return view('seller/home'); }
 
