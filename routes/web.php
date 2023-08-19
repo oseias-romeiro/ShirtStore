@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
+use App\Http\Controllers\CustomAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,9 +40,16 @@ Route::get('/product/{slug}', function ($slug) {
 
 /* Seller routes */
 
-// TODO: add seller model
-// TODO: add seller relationship to product model
-// TODO: add auth with seller role
+// TODO: add user role wirh seller, admin and customer
+// TODO: add user relationship to product model
+// TODO: add auth middleware role
 Route::get('/seller', function () {
     return view('seller/home');
-});
+})  -> middleware('auth');
+
+/* Auth routes */
+Route::get('/account/login', [CustomAuthController::class, 'login'])->name('login');
+Route::post('/account/login', [CustomAuthController::class, 'customLogin'])->name('login');
+Route::get('/account/registration', [CustomAuthController::class, 'registration'])->name('register-user');
+Route::post('/account/registration', [CustomAuthController::class, 'customRegistration'])->name('register-user');
+Route::get('/account/signout', [CustomAuthController::class, 'signOut'])->name('signout');

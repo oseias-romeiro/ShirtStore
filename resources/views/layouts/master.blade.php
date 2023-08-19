@@ -40,15 +40,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ ($route == 'login') ? 'active' : '' }}" href="#">
-                        <i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Login
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link {{ ($route == 'bag') ? 'active' : '' }}" href="/shopping/bag">
                         <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i> Bag
                     </a>
                 </li>
+                @if (Auth::check())
                 <li class="nav-item dropdown">
                     <a class="nav-link {{ ($route == 'profile') ? 'active' : '' }} dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-user" style="color: #ffffff;"></i> Account
@@ -58,6 +54,13 @@
                         <li><a class="dropdown-item" href="#">Logout</a></li>
                     </ul>
                 </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link {{ ($route == 'login') ? 'active' : '' }}" href="{{ route('login')}}">
+                        <i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Login
+                    </a>
+                </li>
+                @endif
                 <li class="nav-item dropdown">
                     <a class="nav-link {{ ($route == 'categories') ? 'active' : '' }} dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-bars" style="color: #ffffff;"></i> Categories
@@ -78,7 +81,7 @@
         @yield('content')
     </div>
 
-    <footer class="bg-dark text-center text-white">
+    <footer class="bg-dark text-center text-white fixed-bottom">
         <!-- Copyright -->
         <div class="text-center p-3">
             © 2021 Copyright <a href="https://oseias-romeiro.github.io/">Oseias Romeiro</a>
