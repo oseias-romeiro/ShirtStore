@@ -21,43 +21,44 @@ class CustomAuthController extends Controller
         
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended(route('index'))->withSuccess('Signed in');
+            return redirect()->intended(route('index'))->with('message', 'Signed in');
         }
 
-        return redirect(route('login'))->withSuccess('Invalid inputs');
+        return redirect(route('login'))->with('message', 'Invalid inputs');
     }
 
     public function registration() { return view('auth.registration'); }
 
     public function customRegistration(Request $request)
-    {  
+    {
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
             'role' => 'required|in:seller,customer,admin',
         ]);
-           
+        
         $data = $request->all();
         $check = $this->create($data);
-         
-        return redirect(route('index'))->withSuccess('You have signed-in');
+        
+        return redirect(route('login'))->with('message', 'User account created');
     }
 
     public function create(array $data)
     {
-      return User::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password'])
-      ]);
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'role' => $data['role'],
+        ]);
     }
     
     public function signOut() {
         Session::flush();
         Auth::logout();
   
-        return Redirect(route('index'));
+        return Redirect(route('index'))->with('message', 'You have signed-in');
     }
 
 }
