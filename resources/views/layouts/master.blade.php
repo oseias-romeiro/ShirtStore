@@ -44,6 +44,13 @@
                         <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i> Bag
                     </a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link {{ ($route == 'categories') ? 'active' : '' }} dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-bars" style="color: #ffffff;"></i> Categories
+                    </a>
+                    <ul class="dropdown-menu">
+                    </ul>
+                </li>
                 @if (Auth::check())
                 <li class="nav-item dropdown">
                     <a class="nav-link {{ ($route == 'profile') ? 'active' : '' }} dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,6 +61,13 @@
                         <li><a class="dropdown-item" href="{{ route('signout') }}">SignOut</a></li>
                     </ul>
                 </li>
+                @if (Auth::check() && Auth::user()->role == 'seller')
+                <li class="nav-item">
+                    <a class="nav-link {{ ($route == 'seller') ? 'active' : '' }}" href="{{ route('seller.home', Auth::user()->id) }}">
+                        <i class="fa-solid fa-store" style="color: #ffffff;"></i> Seller Sapce
+                    </a>
+                </li>
+                @endif
                 @else
                 <li class="nav-item">
                     <a class="nav-link {{ ($route == 'login') ? 'active' : '' }}" href="{{ route('login')}}">
@@ -61,13 +75,6 @@
                     </a>
                 </li>
                 @endif
-                <li class="nav-item dropdown">
-                    <a class="nav-link {{ ($route == 'categories') ? 'active' : '' }} dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-bars" style="color: #ffffff;"></i> Categories
-                    </a>
-                    <ul class="dropdown-menu">
-                    </ul>
-                </li>
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

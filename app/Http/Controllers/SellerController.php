@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-// TODO: add user role wirh seller, admin and customer
-// TODO: add user relationship to product model
-// TODO: add auth middleware role
+use App\Models\Product;
 
 class SellerController extends Controller
 {
@@ -15,6 +12,9 @@ class SellerController extends Controller
         $this->middleware('isSeller');
     }
 
-    public function home() { return view('seller/home'); }
+    public function home($seller_id) {
+        $products = Product::where('seller_id', $seller_id)->get();
+        return view('seller/home', compact('products'));
+    }
 
 }

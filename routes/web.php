@@ -23,9 +23,11 @@ Route::get('/shopping/favorites', [Controller::class, 'favorites'])->name('favor
 Route::get('/shopping/product/{slug}', [Controller::class, 'product'])->name('product');
 
 /* Seller routes */
-
-Route::get('/seller', [SellerController::class, 'home'])->name('seller.home');
-
+Route::get('/seller/{seller_id}', [SellerController::class, 'home'])->name('seller.home');
+// TODO: add products view
+// TODO: add products logic
+// TODO: edit products view
+// TODO: edit products logic
 
 /* Auth routes */
 Route::get('/account/login', [CustomAuthController::class, 'login'])->name('login');
@@ -33,3 +35,5 @@ Route::post('/account/login', [CustomAuthController::class, 'customLogin'])->nam
 Route::get('/account/registration', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('/account/registration', [CustomAuthController::class, 'customRegistration'])->name('register-user');
 Route::get('/account/signout', [CustomAuthController::class, 'signOut'])->name('signout');
+// TODO: add profile view
+// TODO: add profile edit

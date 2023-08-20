@@ -15,9 +15,9 @@ class IsSeller
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (! $request->user() && $request->user()->role === 'seller') {
+        if ($request->user()->role === 'seller') {
             return $next($request);
         }
-        return redirect('index');
+        return redirect(route('index'));
     }
 }

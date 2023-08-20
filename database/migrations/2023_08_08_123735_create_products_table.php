@@ -22,6 +22,7 @@ return new class extends Migration
             $table->json('sizes');
             $table->json('colors');
             $table->json('images');
+            $table->foreignId('seller_id')->constrained('users');
             $table->timestamps();
         });
     }
