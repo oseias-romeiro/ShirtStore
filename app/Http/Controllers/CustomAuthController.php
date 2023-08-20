@@ -39,6 +39,8 @@ class CustomAuthController extends Controller
         ]);
         
         $data = $request->all();
+        if($data['password2'] != $data['password']) return redirect(route('register-user'))->with('message', 'Passwords do not matching');
+
         $check = $this->create($data);
         
         return redirect(route('login'))->with('message', 'User account created');

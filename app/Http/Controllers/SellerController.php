@@ -14,7 +14,7 @@ class SellerController extends Controller
 
     public function home($seller_id) {
         $products = Product::where('seller_id', $seller_id)->get();
-        return view('seller/home', compact('products'));
+        return view('seller.home', compact('products'));
     }
 
 }

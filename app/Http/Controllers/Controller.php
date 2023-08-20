@@ -16,14 +16,14 @@ class Controller extends BaseController
         $products = Product::all();
         return view('index', compact('products'));
     }
-    public function bag() { return view('shopping/bag'); }
-    public function favorites() { return view('shopping/favorites'); }
+    public function bag() { return view('shopping.bag'); }
+    public function favorites() { return view('shopping.favorites'); }
 
     public function product($slug)
     {
         $product = Product::where('slug', $slug)->first();
         if ($product) {
-            return view('shopping/product', ['product' => $product]);
+            return view('shopping.product', ['product' => $product]);
         } else {
             abort(404);
         }

@@ -30,17 +30,17 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link {{ ($route == '/') ? 'active' : '' }}" aria-current="page" href="{{ route('index') }}">
+                    <a class="nav-link {{ (request()->routeIs('index')) ? 'active' : '' }}" aria-current="page" href="{{ route('index') }}">
                         <i class="fa-solid fa-house" style="color: #ffffff;"></i> Home
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ ($route == 'favorites') ? 'active' : '' }}" aria-current="page" href="{{ route('favorites') }}">
+                    <a class="nav-link {{ ( request()->routeIs('favorites')) ? 'active' : '' }}" aria-current="page" href="{{ route('favorites') }}">
                         <i class="fa-solid fa-heart" style="color: #ffffff;"></i> Favorites
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ ($route == 'bag') ? 'active' : '' }}" href="{{ route('bag') }}">
+                    <a class="nav-link {{ (request()->routeIs('bag')) ? 'active' : '' }}" href="{{ route('bag') }}">
                         <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i> Bag
                     </a>
                 </li>
@@ -70,8 +70,13 @@
                 @endif
                 @else
                 <li class="nav-item">
-                    <a class="nav-link {{ ($route == 'login') ? 'active' : '' }}" href="{{ route('login')}}">
+                    <a class="nav-link {{ (request()->routeIs('login')) ? 'active' : '' }}" href="{{ route('login')}}">
                         <i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Login
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ (request()->routeIs('register-user')) ? 'active' : '' }}" href="{{ route('register-user')}}">
+                        <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Register
                     </a>
                 </li>
                 @endif
