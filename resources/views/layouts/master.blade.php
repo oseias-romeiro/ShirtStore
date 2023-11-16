@@ -20,7 +20,7 @@
     @endphp
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#" style="font-family: 'Comic Sans MS', 'Comic Sans', cursive">
                 <img src="/images/favicon.png" height="20">
                 ShirtStore
             </a>

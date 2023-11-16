@@ -20,7 +20,23 @@ function get_favorites(ul) {
         favItems.forEach((item) => {
             let li = document.createElement('li');
             li.className="list-group-item"
-            li.innerHTML=`<a href='/product/${item.slug}'><img src='/images/products/${item.img}' class='img-fluid' style='max-height: 100px;'>${item.name}</a><button class="btn btn-danger removeFromFavorite" slug="${item.slug}">X</button>`
+            li.innerHTML=`
+                <div class="row">
+                    <div class="col-4">
+                        <a href='/product/${item.slug}'>
+                            <img src='/images/products/${item.img}' class='img-fluid' style='max-height: 100px;'>
+                        </a>
+                    </div>
+                    <div class="col-4 pt-4">
+                        <a href='/product/${item.slug}'>${item.name}</a>
+                    </div>
+                    <div class="col-4 pt-4">
+                        <button class="btn btn-danger removeFromFavorite" slug="${item.slug}">
+                            <i class="fa-solid fa-xmark" style="color: #ffffff;"></i>
+                        </button>
+                    </div>
+                </div>
+            `
             ul.appendChild(li)
         })
     }

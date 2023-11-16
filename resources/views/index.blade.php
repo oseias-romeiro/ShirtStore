@@ -6,9 +6,7 @@
 @section('content')
 
 <div class="p-4 text-center text-light" style="background-color: rgba(0, 0, 0, 0.26); height: 100vh;">
-    <br>
-    <h1>ShirtStore</h1>
-    
+    <h1 class="p-5" style="font-family: cursive; text-decoration: underline;">ShirtStore</h1>
     <div class="row">
         @foreach ($products as $product)
             <div class='col-6 col-md-3'>

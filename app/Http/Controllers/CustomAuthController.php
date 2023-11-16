@@ -60,7 +60,7 @@ class CustomAuthController extends Controller
         Session::flush();
         Auth::logout();
   
-        return Redirect(route('index'))->with('message', 'You have signed-in');
+        return Redirect(route('index'))->with('message', 'You have signed-out');
     }
 
 }
