@@ -23,12 +23,12 @@ function get_favorites(ul) {
             li.innerHTML=`
                 <div class="row">
                     <div class="col-4">
-                        <a href='/product/${item.slug}'>
+                        <a href='/shopping/product/${item.slug}'>
                             <img src='/images/products/${item.img}' class='img-fluid' style='max-height: 100px;'>
                         </a>
                     </div>
                     <div class="col-4 pt-4">
-                        <a href='/product/${item.slug}'>${item.name}</a>
+                        <a href='/shopping/product/${item.slug}'>${item.name}</a>
                     </div>
                     <div class="col-4 pt-4">
                         <button class="btn btn-danger removeFromFavorite" slug="${item.slug}">

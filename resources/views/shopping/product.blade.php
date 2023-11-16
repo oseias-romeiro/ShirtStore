@@ -39,7 +39,7 @@
                 <del>{{ $product->old_price }}</del>
                 <h2 class="text-primary">{{ $product->price }}</h2>
                 
-                <form action="" method="post">
+                <form action="" method="">
                 <div class="row">
                     <div class="col">
                         <label for="units">Units</label>

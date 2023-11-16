@@ -23,12 +23,12 @@ function get_bag(ul) {
             li.innerHTML = `
                 <div class="row">
                     <div class="col-4">
-                        <a href='/product/${item.slug}'>
+                        <a href='/shopping/product/${item.slug}'>
                             <img src='/images/products/${item.img}' class='img-fluid' style='max-height: 100px;'>
                         </a>
                     </div>
                     <div class="col-4 pt-4">
-                        <a href='/product/${item.slug}'>
+                        <a href='/shopping/product/${item.slug}'>
                             ${item.name} ${item.color} ${item.size} ${item.units} units ${item.price}$
                         </a>
                     </div>
