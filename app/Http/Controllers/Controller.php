@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Product;
+use App\Models\Category;
 
 class Controller extends BaseController
 {
@@ -13,8 +14,9 @@ class Controller extends BaseController
 
     public function index()
     {
+        $categories = Category::all();
         $products = Product::all();
-        return view('index', compact('products'));
+        return view('index', ['products' => $products, 'categories' => $categories]);
     }
     public function bag() { return view('shopping.bag'); }
     public function favorites() { return view('shopping.favorites'); }

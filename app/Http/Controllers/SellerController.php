@@ -19,6 +19,15 @@ class SellerController extends Controller
 
     public function addProduct() { return view('seller.add_product'); }
 
+    public function editProduct($slug) {
+        $product = Product::where('slug', $slug)->first();
+        if ($product) {
+            return view('seller.edit_product', ['product' => $product]);
+        } else {
+            abort(404);
+        }
+    }
+
     public function addProductPost() {
         $request->validate([
             'name' => 'required',

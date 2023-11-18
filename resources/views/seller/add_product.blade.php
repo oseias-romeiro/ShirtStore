@@ -7,8 +7,7 @@
 @section('content')
 
 <div class="container">
-    <br><br>
-    <h1>New product</h1>
+    <h1 class="p-4">New product</h1>
     <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
         @csrf
         <input type="hidden" name="seller_id" value="{{ Auth::user()->id }}">
@@ -47,7 +46,9 @@
             <input type="text" class="form-control" id="colors" name="colors" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" class="btn btn-primary mt-4" style="width: 100%">
+            <i class="fa fa-plus"></i> Add
+        </button>
     </form>
 </div>
 

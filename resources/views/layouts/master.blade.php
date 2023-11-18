@@ -44,13 +44,18 @@
                         <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i> Bag
                     </a>
                 </li>
+                @if ($route == '/')
                 <li class="nav-item dropdown">
                     <a class="nav-link {{ ($route == 'categories') ? 'active' : '' }} dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-bars" style="color: #ffffff;"></i> Categories
                     </a>
                     <ul class="dropdown-menu">
+                        @foreach ($categories as $category)
+                        <li class="dropdown-item">{{ $category->name }}</li>
+                        @endforeach
                     </ul>
                 </li>
+                @endif
                 @if (Auth::check())
                 <li class="nav-item dropdown">
                     <a class="nav-link {{ ($route == 'profile') ? 'active' : '' }} dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
