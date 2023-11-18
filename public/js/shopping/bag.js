@@ -6,7 +6,12 @@ function bagging(name, slug, img, units, size, color, price) {
     bagItems.push({"name": name, "slug": slug, "img": img, "units": units, "size": size, "color": color, "price": price});
     setCookie('bag', JSON.stringify(bagItems), 1);
     
-    alert('Product added to bag!');
+    Swal.fire({
+        icon: 'success',
+        title: 'Product added!',
+        text: 'Product added to bag.',
+        confirmButtonText: 'OK',
+    });
 }
 
 function get_bag(ul) {
@@ -22,17 +27,17 @@ function get_bag(ul) {
             li.className="list-group-item"
             li.innerHTML = `
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-5">
                         <a href='/shopping/product/${item.slug}'>
                             <img src='/images/products/${item.img}' class='img-fluid' style='max-height: 100px;'>
                         </a>
                     </div>
-                    <div class="col-4 pt-4">
+                    <div class="col-5 pt-4">
                         <a href='/shopping/product/${item.slug}'>
                             ${item.name} ${item.color} ${item.size} ${item.units} units ${item.price}$
                         </a>
                     </div>
-                    <div class="col-4 pt-4">
+                    <div class="col-2 pt-4">
                         <button class="btn btn-danger removeFromBag" slug="${item.slug}">
                             <i class="fa-solid fa-xmark" style="color: #ffffff;"></i>
                         </button>
@@ -41,6 +46,11 @@ function get_bag(ul) {
             `
             ul.appendChild(li);
         })
+        let a = document.createElement('button');
+        a.className="btn btn-primary mt-4"
+        a.href="/shopping/checkout"
+        a.innerHTML = "Checkout"
+        ul.appendChild(a);
     }
     let remove_btns = document.getElementsByClassName('removeFromBag')
     for (let i = 0; i < remove_btns.length; i++) {

@@ -6,7 +6,12 @@ function favoriting(name, slug, img) {
     favItems.push({"name": name, "slug": slug, "img": img});
     setCookie('favorites', JSON.stringify(favItems), 1);
     
-    alert('Product added to favorites!');
+    Swal.fire({
+        icon: 'success',
+        title: 'Product added!',
+        text: 'Product added to favorites.',
+        confirmButtonText: 'OK',
+    });
 }
 
 function get_favorites(ul) {
@@ -22,15 +27,15 @@ function get_favorites(ul) {
             li.className="list-group-item"
             li.innerHTML=`
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-5">
                         <a href='/shopping/product/${item.slug}'>
                             <img src='/images/products/${item.img}' class='img-fluid' style='max-height: 100px;'>
                         </a>
                     </div>
-                    <div class="col-4 pt-4">
+                    <div class="col-5 pt-4">
                         <a href='/shopping/product/${item.slug}'>${item.name}</a>
                     </div>
-                    <div class="col-4 pt-4">
+                    <div class="col-2 pt-4">
                         <button class="btn btn-danger removeFromFavorite" slug="${item.slug}">
                             <i class="fa-solid fa-xmark" style="color: #ffffff;"></i>
                         </button>

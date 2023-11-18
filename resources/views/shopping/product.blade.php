@@ -7,13 +7,13 @@
 
 <br>
 <div class="card-body">
-    <div class="row">
+    <div class="row" style="margin-bottom: 100px;">
         <div class="col-12 col-md-6">
             <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                     @foreach (json_decode($product->images, true) as $i)
-                    <div class="carousel-item active">
-                        <img src='/images/products/{{ $i }}' alt='{{ $product->name }}' class="d-block w-100" >
+                    <div class="carousel-item {{ $loop->first ? 'active' : ''}}">
+                        <img src='/images/products/{{ $i }}' alt='{{ $product->name }}' class="d-block w-100" style="max-height: 700px;" >
                     </div>
                     @endforeach
                 </div>
