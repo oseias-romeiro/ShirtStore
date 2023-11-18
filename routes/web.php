@@ -24,7 +24,7 @@ Route::get('/shopping/product/{slug}', [Controller::class, 'product'])->name('pr
 
 /* Seller routes */
 Route::get('/seller/{seller_id}', [SellerController::class, 'home'])->name('seller.home');
-// TODO: add products view
+Route::get('/product/add', [SellerController::class, 'addProduct'])->name('seller.add-product');
 // TODO: add products logic
 // TODO: edit products view
 // TODO: edit products logic

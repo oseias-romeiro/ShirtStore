@@ -17,4 +17,41 @@ class SellerController extends Controller
         return view('seller.home', compact('products'));
     }
 
+    public function addProduct() { return view('seller.add_product'); }
+
+    public function addProductPost() {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'units' => 'required',
+            'description' => 'required'
+        ]);
+
+        $data = $request->all();
+        $check = $this->storeProduct($data);
+
+        return redirect()->route('seller.home', auth()->user()->id)->with('message', 'Product added successfully.');
+    }
+
+    public function storeProduct(array $data) {
+
+        if($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
+            ]);
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $product->image = $imageName;
+        }
+        return Product::create([
+            'seller_id' => auth()->user()->id,
+            'name' => $data['name'],
+            'price' => $data['price'],
+            'old_price' => $data['old_price'],
+            'units' => $data['units'],
+            'colors' => $data['colors'],
+            'description' => $data['description'],
+            'images' => $data['images'],
+        ]);
+    }
 }

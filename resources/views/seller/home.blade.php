@@ -8,7 +8,7 @@
 
 <br>
 <h2 class="float-left">Products</h2>
-<a class="btn btn-primary" href="">
+<a class="btn btn-primary" href="{{ route('seller.add-product') }}">
     <i class="fa fa-plus"></i> Add
 </a>
 
