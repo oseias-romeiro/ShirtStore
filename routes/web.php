@@ -20,6 +20,7 @@ Route::get('/', [Controller::class, 'index'])->name('index');
 Route::get('/shopping/bag', [Controller::class, 'bag'])->name('bag');
 Route::get('/shopping/favorites', [Controller::class, 'favorites'])->name('favorites');
 Route::get('/shopping/product/{slug}', [Controller::class, 'product'])->name('product');
+// TODO: serach by category
 
 /* Seller routes */
 Route::get('/seller/{seller_id}', [SellerController::class, 'home'])->name('seller.home');

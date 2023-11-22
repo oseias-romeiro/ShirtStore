@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'slug', 'price', 'old_price', 'units', 'description', 'sizes', 'colors', 'images', 'seller_id'];
+    protected $fillable = ['name', 'slug', 'price', 'old_price', 'units', 'description', 'sizes', 'colors', 'images', 'seller_id', 'category_id'];
 
     protected $casts = [
         'sizes' => 'array',
@@ -28,5 +28,6 @@ class Product extends Model
         'colors' => 'required|array',
         'images' => 'required|array',
         'seller_id' => 'required|exists:users,id',
+        'category_id' => 'required|exists:categories,id',
     ];
 }

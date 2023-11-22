@@ -12,7 +12,7 @@ php artisan config:cache
 touch db.sqlite
 php artisan migrate
 php artisan db:seed --class=UserSeeder
-php artisan db:seed --class=ProductSeeder
 php artisan db:seed --class=CategorySeeder
+php artisan db:seed --class=ProductSeeder
 php artisan serve
 ```

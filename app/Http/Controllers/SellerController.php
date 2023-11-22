@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class SellerController extends Controller
 {
@@ -17,7 +18,10 @@ class SellerController extends Controller
         return view('seller.home', compact('products'));
     }
 
-    public function addProduct() { return view('seller.add_product'); }
+    public function addProduct() {
+        $categories = Category::all();
+        return view('seller.add_product', compact('categories'));
+    }
 
     public function addProductPost(Request $request) {
 
@@ -30,6 +34,7 @@ class SellerController extends Controller
             'description' => 'required',
             'sizes' => 'required',
             'colors' => 'required',
+            'category' => 'category',
         ]);
 
         $data = $request->all();
@@ -51,6 +56,7 @@ class SellerController extends Controller
             'colors' => json_encode(explode(',', $data['colors'])),
             'images' => json_encode($images),
             'seller_id' => auth()->user()->id,
+            'category_id' => $data['category'],
         ]);
 
         return redirect()->route('seller.home', auth()->user()->id)->with('message', 'Product added successfully.');
@@ -59,10 +65,11 @@ class SellerController extends Controller
     public function editProduct($slug) {
         $product = Product::where('slug', $slug)->first();
         if ($product) {
+            $categories = Category::all();
             // transform json data in string of list with commas
             $product->sizes = implode(',', json_decode($product->sizes));
             $product->colors = implode(',', json_decode($product->colors));
-            return view('seller.edit_product', ['product' => $product]);
+            return view('seller.edit_product', ['product' => $product, 'categories' => $categories]);
         } else {
             abort(404);
         }
@@ -95,6 +102,7 @@ class SellerController extends Controller
             $product->description = $data['description'];
             $product->sizes = json_encode(explode(',', $data['sizes']));
             $product->colors = json_encode(explode(',', $data['colors']));
+            $product->category_id = $data['category'];
             $product->save();
             return redirect()->route('seller.home', auth()->user()->id)->with('message', 'Product edited successfully.');
         } else {

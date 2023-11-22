@@ -49,7 +49,14 @@
             <label for="colors">Avaliable colors</label>
             <input type="text" class="form-control" id="colors" name="colors" required>
         </div>
-
+        <select name="category" id="category" class="form-select">
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}">
+                    {{ $category->name }}
+                </option>
+            @endforeach
+        </select>
+        <br>
         <button class="btn btn-primary" style="width: 100%; margin-bottom: 100px;">
             <i class="fa fa-plus"></i> Add
         </button>

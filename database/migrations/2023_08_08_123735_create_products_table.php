@@ -23,6 +23,7 @@ return new class extends Migration
             $table->json('colors');
             $table->json('images');
             $table->foreignId('seller_id')->constrained('users');
+            $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();
         });
     }

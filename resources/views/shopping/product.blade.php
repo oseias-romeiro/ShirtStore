@@ -43,7 +43,7 @@
                 <div class="row">
                     <div class="col">
                         <label for="units">Units</label>
-                        <input id="units" class="form-control" type="number" name="units" id="units">
+                        <input id="units" class="form-control" type="number" name="units" id="units" step="1" min="1" value="1">
                     </div>
                     <div class="col">
                         <label for="size">Sizes</label>
