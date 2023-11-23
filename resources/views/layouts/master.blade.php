@@ -70,7 +70,7 @@
                 </li>
                 @if (Auth::check() && Auth::user()->role == 'seller')
                 <li class="nav-item">
-                    <a class="nav-link {{ ($route == 'seller') ? 'active' : '' }}" href="{{ route('seller.home', Auth::user()->id) }}">
+                    <a class="nav-link {{ ($route == 'seller') ? 'active' : '' }}" href="{{ route('seller.home') }}">
                         <i class="fa-solid fa-store" style="color: #ffffff;"></i> Seller Sapce
                     </a>
                 </li>

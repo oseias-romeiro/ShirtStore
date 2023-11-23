@@ -13,8 +13,15 @@ class SellerController extends Controller
         $this->middleware('isSeller');
     }
 
-    public function home($seller_id) {
-        $products = Product::where('seller_id', $seller_id)->get();
+    public function home() {
+        $seller_id = auth()->user()->id;
+        
+        // admin user get all products
+        if (auth()->user()->role == 'admin') {
+            $products = Product::all();
+        }else {
+            $products = Product::where('seller_id', $seller_id)->get();
+        }
         return view('seller.home', compact('products'));
     }
 
@@ -105,6 +112,19 @@ class SellerController extends Controller
             $product->category_id = $data['category'];
             $product->save();
             return redirect()->route('seller.home', auth()->user()->id)->with('message', 'Product edited successfully.');
+        } else {
+            abort(404);
+        }
+    }
+
+    public function deleteProduct($slug) {
+        $product = Product::where('slug', $slug)->first();
+        if ($product) {
+            foreach (json_decode($product->images) as $image) {
+                unlink(public_path('images').'/products/'.$image);
+            }
+            $product->delete();
+            return redirect()->route('seller.home', auth()->user()->id)->with('message', 'Product deleted successfully.');
         } else {
             abort(404);
         }

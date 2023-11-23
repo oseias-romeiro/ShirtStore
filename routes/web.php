@@ -23,12 +23,13 @@ Route::get('/shopping/product/{slug}', [Controller::class, 'product'])->name('pr
 // TODO: serach by category
 
 /* Seller routes */
-Route::get('/seller/{seller_id}', [SellerController::class, 'home'])->name('seller.home');
+Route::get('/seller', [SellerController::class, 'home'])->name('seller.home');
 // TODO: melhorar interface para os campos de tamanho e cor
 Route::get('/product/add', [SellerController::class, 'addProduct'])->name('seller.add-product');
 Route::post('/product/add', [SellerController::class, 'addProductPost'])->name('seller.add-product');
 Route::get('/product/edit/{slug}', [SellerController::class, 'editProduct'])->name('seller.edit-product');
 Route::post('/product/edit-post', [SellerController::class, 'editProductPost'])->name('seller.edit-product-post');
+Route::delete('/product/delete/{slug}', [SellerController::class, 'deleteProductPost'])->name('seller.delete-product');
 
 /* Auth routes */
 Route::get('/account/login', [CustomAuthController::class, 'login'])->name('login');

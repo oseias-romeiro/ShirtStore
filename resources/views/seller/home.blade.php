@@ -29,6 +29,14 @@
                 <h2 class="text-primary">{{ $product->price }}</h2>
             </div>
         </a>
+        <!-- delete product -->
+        <form action="{{ route('seller.delete-product', $product->slug) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">
+                <i class="fa fa-trash"></i> Delete
+            </button>
+        </form>
         <br>
     </div>
     @endforeach
