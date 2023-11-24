@@ -22,9 +22,6 @@ class CustomAuthController extends Controller
         $data = $request->all();
         $user = User::find($data['id']);
 
-        // default role is customer if not specified
-        if(!isset($data['role'])) $data['role'] = 'customer';
-
         // check if passwords match
         if($data['password2'] != $data['password']) return redirect(route('register-user'))->with('message', 'Passwords do not matching');
 
