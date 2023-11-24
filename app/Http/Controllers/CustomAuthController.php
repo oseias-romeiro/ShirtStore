@@ -10,6 +10,34 @@ use Illuminate\Support\Facades\Auth;
 
 class CustomAuthController extends Controller
 {
+    public function index() { return view('auth.profile'); }
+
+    public function editProfile(Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required|min:8',
+            //'role' => 'required|in:seller,customer,admin',
+        ]);
+        $data = $request->all();
+        $user = User::find($data['id']);
+
+        // default role is customer if not specified
+        if(!isset($data['role'])) $data['role'] = 'customer';
+
+        // check if passwords match
+        if($data['password2'] != $data['password']) return redirect(route('register-user'))->with('message', 'Passwords do not matching');
+
+        // update user
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->password = Hash::make($data['password']);
+        //$user->role = $data['role'];
+        $user->save();
+
+        return redirect(route('index'))->with('message', 'User account updated');
+    }
+
     public function login() { return view('auth.login'); }
 
     public function customLogin(Request $request)
@@ -35,10 +63,14 @@ class CustomAuthController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
-            'role' => 'required|in:seller,customer,admin',
+            //'role' => 'required|in:seller,customer,admin',
         ]);
-        
         $data = $request->all();
+
+        // default role is customer if not specified
+        if(!isset($data['role'])) $data['role'] = 'customer';
+
+        // check if passwords match
         if($data['password2'] != $data['password']) return redirect(route('register-user'))->with('message', 'Passwords do not matching');
 
         $check = $this->userCreate($data);

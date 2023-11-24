@@ -64,7 +64,7 @@
                         <i class="fa-solid fa-user" style="color: #ffffff;"></i> Account
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ route('account') }}">Profile</a></li>
                         <li><a class="dropdown-item" href="{{ route('signout') }}">SignOut</a></li>
                     </ul>
                 </li>
