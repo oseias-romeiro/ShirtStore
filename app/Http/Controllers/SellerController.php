@@ -10,9 +10,7 @@ class SellerController extends Controller
 {
     public function __construct() {
         $this->middleware('auth');
-       // verify if user is admin or seller
-        $this->middleware('isSeller');
-        
+        $this->middleware('isSeller'); // verify if user is admin or seller
     }
 
     public function home() {

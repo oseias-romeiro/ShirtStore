@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\SellerController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,7 @@ Route::post('/product/delete/{slug}', [SellerController::class, 'deleteProduct']
 
 // TODO: admin panel
 /* Admin routes */
+Route::get('/admin', [AdminController::class, 'home'])->name('admin.home');
 
 
 /* Auth routes */
