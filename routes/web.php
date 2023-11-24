@@ -29,7 +29,7 @@ Route::get('/product/add', [SellerController::class, 'addProduct'])->name('selle
 Route::post('/product/add', [SellerController::class, 'addProductPost'])->name('seller.add-product');
 Route::get('/product/edit/{slug}', [SellerController::class, 'editProduct'])->name('seller.edit-product');
 Route::post('/product/edit-post', [SellerController::class, 'editProductPost'])->name('seller.edit-product-post');
-Route::delete('/product/delete/{slug}', [SellerController::class, 'deleteProductPost'])->name('seller.delete-product');
+Route::post('/product/delete/{slug}', [SellerController::class, 'deleteProduct'])->name('seller.delete-product');
 
 /* Auth routes */
 Route::get('/account/login', [CustomAuthController::class, 'login'])->name('login');

@@ -33,8 +33,13 @@
                 <hr>
                 <p class="card-text">{{ $product->description }}</p>
 
-                <label>Quantities</label>
-                <input style="max-width: 80px;" type="number" value="{{ $product->units }}" disabled><br>
+                <div class="row justify-content-center">
+                    <div class="col-md-4 col-lg-3">
+                        Quantities
+                        <input class="form-control" id="quantities" style="max-width: 120px;" type="number" value="{{ $product->units }}" disabled>
+                    </div>
+                </div>
+                <br>
 
                 <del>{{ $product->old_price }}</del>
                 <h2 class="text-primary">{{ $product->price }}</h2>

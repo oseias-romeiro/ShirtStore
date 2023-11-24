@@ -10,7 +10,9 @@ class SellerController extends Controller
 {
     public function __construct() {
         $this->middleware('auth');
+       // verify if user is admin or seller
         $this->middleware('isSeller');
+        
     }
 
     public function home() {
@@ -41,7 +43,7 @@ class SellerController extends Controller
             'description' => 'required',
             'sizes' => 'required',
             'colors' => 'required',
-            'category' => 'category',
+            'category' => 'required',
         ]);
 
         $data = $request->all();
@@ -119,6 +121,10 @@ class SellerController extends Controller
 
     public function deleteProduct($slug) {
         $product = Product::where('slug', $slug)->first();
+        // check if seller is the owner of the product
+        if ($product->seller_id != auth()->user()->id && auth()->user()->role != 'admin') {
+            abort(403);
+        }
         if ($product) {
             foreach (json_decode($product->images) as $image) {
                 unlink(public_path('images').'/products/'.$image);

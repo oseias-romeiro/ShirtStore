@@ -68,7 +68,9 @@
                         <li><a class="dropdown-item" href="{{ route('signout') }}">SignOut</a></li>
                     </ul>
                 </li>
-                @if (Auth::check() && Auth::user()->role == 'seller')
+                @if (Auth::check() && Auth::user()->role == 'seller' or 
+                    Auth::check() && Auth::user()->role == 'admin'                
+                )
                 <li class="nav-item">
                     <a class="nav-link {{ ($route == 'seller') ? 'active' : '' }}" href="{{ route('seller.home') }}">
                         <i class="fa-solid fa-store" style="color: #ffffff;"></i> Seller Sapce
@@ -97,7 +99,7 @@
     </nav>
     
     @if (session()->has('message'))
-    <div class="alert alert-light alert-dismissible fade show text-center" role="alert">
+    <div class="alert alert-secondary alert-dismissible fade show text-center" role="alert">
         {{ session()->get('message') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -121,6 +123,6 @@
     <!-- sweet alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script type="module" src="/js/app.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>
