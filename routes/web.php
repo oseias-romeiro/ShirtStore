@@ -18,7 +18,9 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::get('/', [Controller::class, 'index'])->name('index');
+# TODO: melhorar interface da bag
 Route::get('/shopping/bag', [Controller::class, 'bag'])->name('bag');
+# TODO: melhorar interface dos favoritos
 Route::get('/shopping/favorites', [Controller::class, 'favorites'])->name('favorites');
 Route::get('/shopping/product/{slug}', [Controller::class, 'product'])->name('product');
 // TODO: serach by category
@@ -36,7 +38,8 @@ Route::post('/product/delete/{slug}', [SellerController::class, 'deleteProduct']
 // TODO: admin panel
 /* Admin routes */
 Route::get('/admin', [AdminController::class, 'home'])->name('admin.home');
-
+Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');
+Route::get('/admin/users/role/edit', [AdminController::class, 'editRole'])->name('admin.role.edit');
 
 /* Auth routes */
 Route::get('/account', [CustomAuthController::class, 'index'])->name('account');

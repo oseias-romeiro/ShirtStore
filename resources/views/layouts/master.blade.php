@@ -46,18 +46,6 @@
                         <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i> Bag
                     </a>
                 </li>
-                @if ($route == '/')
-                <li class="nav-item dropdown">
-                    <a class="nav-link {{ ($route == 'categories') ? 'active' : '' }} dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-bars" style="color: #ffffff;"></i> Categories
-                    </a>
-                    <ul class="dropdown-menu">
-                        @foreach ($categories as $category)
-                        <li class="dropdown-item">{{ $category->name }}</li>
-                        @endforeach
-                    </ul>
-                </li>
-                @endif
                 @if (Auth::check())
                 <li class="nav-item dropdown">
                     <a class="nav-link {{ ($route == 'profile') ? 'active' : '' }} dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -77,6 +65,15 @@
                     </a>
                 </li>
                 @endif
+                @if (Auth::check() && Auth::user()->role == 'seller' or 
+                    Auth::check() && Auth::user()->role == 'admin'                
+                )
+                <li class="nav-item">
+                    <a class="nav-link {{ ($route == 'admin') ? 'active' : '' }}" href="{{ route('admin.home') }}">
+                        <i class="fa-solid fa-lock" style="color: #ffffff;"></i> Admin Sapce
+                    </a>
+                </li>
+                @endif
                 @else
                 <li class="nav-item">
                     <a class="nav-link {{ (request()->routeIs('login')) ? 'active' : '' }}" href="{{ route('login')}}">
@@ -89,9 +86,23 @@
                     </a>
                 </li>
                 @endif
+                @if ($route == '/')
+                <li class="nav-item dropdown">
+                    <a class="nav-link {{ ($route == 'categories') ? 'active' : '' }} dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-bars" style="color: #ffffff;"></i> Categories
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach ($categories as $category)
+                        <a href="{{ route('index', [ 'category' => $category->id] )}}">
+                            <li class="dropdown-item">{{ $category->name }}</li>
+                        </a>
+                        @endforeach
+                    </ul>
+                </li>
+                @endif
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form action="" class="d-flex" role="search">
+                <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-primary" type="submit">Search</button>
             </form>
             </div>

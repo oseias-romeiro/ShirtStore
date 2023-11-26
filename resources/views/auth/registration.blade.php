@@ -25,14 +25,6 @@
             <label for="password2">Retype password</label>
             <input type="password" class="form-control" name="password2" required>
         </div>
-        <div class="form-group mb-2">
-            <label for="role">Role</label>
-            <select class="form-control" name='role'>
-                <option value="customer" selected>Customer</option>
-                <option value="seller">Seller</option>
-                <option value="customer">Admin</option>
-            </select>
-        </div>
 
         <div class="text-center pt-4">
             <button type="submit" class="btn btn-primary" style='min-width: 40%;'>Register</button>
