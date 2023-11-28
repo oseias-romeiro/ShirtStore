@@ -2,6 +2,8 @@
 
 ShirtStore is a web application built with Laravel for managing an online shirt store. It provides features for managing products, categories, and users.
 
+Try: [shirtstore.oseiasromeiro.repl.co](https://shirtstore.oseiasromeiro.repl.co/)
+
 ## Requirements
 
 - PHP >= 7.3
