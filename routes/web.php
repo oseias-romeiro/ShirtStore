@@ -17,14 +17,13 @@ use App\Http\Controllers\AdminController;
 |
 */
 
+/* Customer routes */
 Route::get('/', [Controller::class, 'index'])->name('index');
 # TODO: melhorar interface da bag
 Route::get('/shopping/bag', [Controller::class, 'bag'])->name('bag');
 # TODO: melhorar interface dos favoritos
 Route::get('/shopping/favorites', [Controller::class, 'favorites'])->name('favorites');
 Route::get('/shopping/product/{slug}', [Controller::class, 'product'])->name('product');
-// TODO: serach by category
-// TODO: serach by name
 
 /* Seller routes */
 Route::get('/seller', [SellerController::class, 'home'])->name('seller.home');
@@ -35,7 +34,6 @@ Route::get('/product/edit/{slug}', [SellerController::class, 'editProduct'])->na
 Route::post('/product/edit-post', [SellerController::class, 'editProductPost'])->name('seller.edit-product-post');
 Route::post('/product/delete/{slug}', [SellerController::class, 'deleteProduct'])->name('seller.delete-product');
 
-// TODO: admin panel
 /* Admin routes */
 Route::get('/admin', [AdminController::class, 'home'])->name('admin.home');
 Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');

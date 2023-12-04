@@ -10,9 +10,20 @@ use Illuminate\Support\Facades\Auth;
 
 class CustomAuthController extends Controller
 {
-    public function index() { return view('auth.profile'); }
+    public function index(Request $request) {
+        // check authentication
+        if(!Auth::check()) {
+            return redirect(route('login'))->with('message', 'Please login to continue');
+        }
+        return view('auth.profile');
+    }
 
     public function editProfile(Request $request) {
+        // check authentication
+        if(!Auth::check()) {
+            return redirect(route('login'))->with('message', 'Please login to continue');
+        }
+        
         $request->validate([
             'name' => 'required',
             'email' => 'required',
