@@ -17,7 +17,7 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-$PREFIX = '/';
+$PREFIX = '';
 
 $routes = function(){
     /* Customer routes */
